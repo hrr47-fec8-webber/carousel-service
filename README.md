@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> Image Carousel for AirBnB Clone
 
 ## Related Projects
 
