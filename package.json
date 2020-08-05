@@ -15,7 +15,8 @@
     "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
