@@ -1,39 +1,33 @@
-const faker = require('faker');
-const mysql = require('mysql');
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
 const db = require('../db');
 
-
-const downloadImage = (url, imgPath) => {
-  axios({
-    url,
-    responseType: 'stream'
-  })
-    .then(response => {
-      return new Promise((resolve, reject) => {
-        response.data
-          .pipe(fs.createWriteStream(imgPath))
-          .on('finish', () => resolve())
-          .on('error', (e) => reject(e));
-      });
+const insert = (locationId, url, order) => {
+  return new Promise((resolve, reject) => {
+    db.query('INSERT INTO images (location_id, url, img_order) VALUES (?, ?, ?)', [locationId, url, order], (err, success) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(success);
+      }
     });
+  });
 };
 
-/* axios.get('http://picsum.photos/v2/list')
-  .then(response => {
-    let list = response.data.slice(0, 4);
-    return Promise.all(list.map((pic, i) => downloadImage(pic.download_url, path.join(__dirname, `/test/${i}.jpg`))));
-  })
-  .catch(err => console.log(err));
 
- */
-
-db.query('DESCRIBE users', (err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(data);
+const seed = () => {
+  let allPromises = [];
+  let primary = 1;
+  while (primary <= 100) {
+    let totalImages = Math.floor(Math.random() * (25)) + 5;
+    for (let i = 1; i < totalImages; i++) {
+      let img = Math.ceil(Math.random() * 50);
+      let imgUrl = `https://team-webber-image-carousel-472020.s3-us-west-2.amazonaws.com/${img}.jpg`;
+      insert(primary, imgUrl, i);
+    }
+    primary++;
   }
-});
+  return Promise.all(allPromises)
+    .then(() => console.log('mySQL DB seeded'))
+    .catch((err) => console.log(err));
+};
+
+seed();
