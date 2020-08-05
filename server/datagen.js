@@ -1,11 +1,28 @@
 const faker = require('faker');
-const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 
-/*
-for (let i = 0; i < 5; i++) {
-  let file = fs.createWriteStream(path.join(__dirname, `/test/${i}.jpg`));
-  let image = faker.image.image();
-  http.get(image, (response) => response.pipe(file));
-} */
+
+const downloadImage = (url, imgPath) => {
+  axios({
+    url,
+    responseType: 'stream'
+  })
+    .then(response => {
+      return new Promise((resolve, reject) => {
+        response.data
+          .pipe(fs.createWriteStream(imgPath))
+          .on('finish', () => resolve())
+          .on('error', (e) => reject(e));
+      });
+    });
+};
+
+axios.get('http://picsum.photos/v2/list')
+  .then(response => {
+    let list = response.data.slice(0, 4);
+    return Promise.all(list.map((pic, i) => downloadImage(pic.download_url, path.join(__dirname, `/test/${i}.jpg`))));
+  })
+  .catch(err => console.log(err));
+
