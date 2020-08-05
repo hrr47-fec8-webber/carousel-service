@@ -1,17 +1,32 @@
 {
-  "name": "",
+  "name": "Carousel",
   "version": "",
   "description": "",
-  "author": "",
+  "author": "Brennan Caldwell",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node server/index.js",
+    "seed": "node server/datagen.js"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^4.44.1",
+    "webpack-dev": "^1.1.1"
   }
 }
