@@ -11,7 +11,7 @@
     "start": "nodemon server/index.js",
     "seed": "node server/datagen.js",
     "test": "jest",
-    "build": "webpack"
+    "build": "webpack -d --watch"
   },
   "dependencies": {
     "axios": "^0.19.2",
