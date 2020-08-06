@@ -20,7 +20,8 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -30,6 +31,7 @@
     "@testing-library/react": "^10.4.8",
     "babel-jest": "^26.2.2",
     "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.2.2",
     "react-test-renderer": "^16.13.1",
