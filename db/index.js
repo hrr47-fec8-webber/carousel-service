@@ -1,8 +1,9 @@
 const mysql = require('mysql');
+const config = require('./config');
 
 const connection = mysql.createConnection({
-  user: 'root',
-  password: 'root',
+  user: config.user,
+  password: config.password,
   database: 'carousel'
 });
 
