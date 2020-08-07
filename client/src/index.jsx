@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import gallery from './gallery.css';
+import GalleryImage from './GalleryImage.jsx';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -30,8 +31,17 @@ class Gallery extends React.Component {
   }
 
   render() {
+    let length = this.state.images.length;
+    let div = (<div></div>);
+    let images;
+    if (length > 0) {
+      images = (length >= 5 ? this.state.images.slice(0, 5) : this.state.images);
+      div = images.map(image => <GalleryImage image={image} length={images.length} />);
+    }
     return (
-      <div className={gallery.gallery} style={this.state} onMouseEnter={this.hover} onMouseLeave={this.hover}>What about now?</div>
+      <div className={gallery.grid} onMouseEnter={this.hover} onMouseLeave={this.hover}>
+        {div}
+      </div>
     );
   }
 }
@@ -39,6 +49,6 @@ class Gallery extends React.Component {
 let location = '1';
 
 ReactDOM.render(
-  <Gallery location={location}/>,
+  <Gallery className={gallery.body} location={location}/>,
   document.getElementById('carousel')
 );
