@@ -10,29 +10,34 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "seed": "node server/datagen.js",
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack -d --watch"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "bluebird": "^3.7.2",
-    "enzyme": "^3.11.0",
+    "eslint-config-airbnb": "^18.2.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@testing-library/react": "^10.4.8",
     "babel-jest": "^26.2.2",
     "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.2.2",
     "react-test-renderer": "^16.13.1",
     "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
     "webpack-dev": "^1.1.1"
   }
 }
