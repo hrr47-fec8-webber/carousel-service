@@ -23,12 +23,10 @@ app.get('/api/images/:id', (req, res) => {
   });
 });
 
-
-const port = 3306;
+const port = 3001;
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
 
 module.exports = app;

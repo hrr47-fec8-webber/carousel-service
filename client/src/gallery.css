@@ -39,7 +39,7 @@
   transition: box-shadow 0.2s ease-in-out;
 }
 
-.img1in5 , .img1in4, .img1in3, .img1in2{
+.img1in5 {
   composes: img;
   grid-area: 1 / 1 / span 2 / span 2;
   border-radius: 10px 0 0 10px;
@@ -68,30 +68,22 @@
   grid-area: 1 / 3 / span 1 / span 1;
 }
 
-.img3in3 {
-  composes: img;
-  grid-area: 2 / 3 / span 1 / span 2;
-  border-radius: 0 0 10px 0;
-}
-
 .img3in5 {
   composes: img;
   grid-area: 1 / 4 / span 1 / span 1;
   border-radius: 0 10px 0 0;
 }
 
-.img4in5, .img3in4 {
+.img4in5 {
   composes: img;
   grid-area: 2 / 3 / span 1 / span 1;
 }
 
-.img5in5, .img4in4{
+.img5in5 {
   composes: img;
   grid-area: 2 / 4 / span 1 / span 1;
   border-radius: 0 0 10px 0;
 }
-
-
 
 .showAll {
   cursor: pointer;
