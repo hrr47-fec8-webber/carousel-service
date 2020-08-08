@@ -44,7 +44,7 @@ class Gallery extends React.Component {
   }
 }
 
-let location = '1';
+let location = '5';
 
 ReactDOM.render(
   <Gallery location={location}/>,
