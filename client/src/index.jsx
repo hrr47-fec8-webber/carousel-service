@@ -15,7 +15,8 @@ class Gallery extends React.Component {
 
   fetch(location) {
     axios.get(`/api/images/${location}`)
-      .then(data => this.setState({images: data.data}));
+      .then(data => this.setState({images: data.data}))
+      .catch(err => console.log(err));
   }
 
   componentDidMount() {
