@@ -25,7 +25,7 @@ class Gallery extends React.Component {
 
   render() {
     let length = this.state.images.length;
-    let div = (<div></div>);
+    let div = (<div> </div>);
     let images;
     if (length > 0) {
       images = (length >= 5 ? this.state.images.slice(0, 5) : this.state.images);
@@ -39,7 +39,7 @@ class Gallery extends React.Component {
             {div}
             {this.state.images.length
               ? <button type="submit" className={gallery.showAll}>Show all photos</button>
-              : (<div></div>)}
+              : (<div> </div>)}
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ module.exports = {
   entry: path.join(__dirname, '/client/src/index.jsx'),
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, '/client/dist')
+    path: path.join(__dirname, '/client/dist'),
   },
   watch: true,
   module: {
@@ -18,30 +18,29 @@ module.exports = {
             presets: [
               '@babel/preset-env',
               '@babel/preset-react',
-            ]
-          }
-        }
+            ],
+          },
+        },
       },
       {
         test: /\.css$/i,
         exclude: /node_modules/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-            },
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+          options: {
+            modules: true,
           },
-        ],
+        }],
       },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
         loader: 'url-loader',
         options: {
           limit: 8192,
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 };
