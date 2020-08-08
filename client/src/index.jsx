@@ -39,8 +39,11 @@ class Gallery extends React.Component {
       div = images.map(image => <GalleryImage image={image} length={images.length} />);
     }
     return (
-      <div className={gallery.grid} onMouseEnter={this.hover} onMouseLeave={this.hover}>
-        {div}
+      <div className={gallery.body}>
+        <div className={gallery.grid} onMouseEnter={this.hover} onMouseLeave={this.hover}>
+          {div}
+          {this.state.images.length ? <button className={gallery.showAll}>Show all photos</button> : <div></div>}
+        </div>
       </div>
     );
   }
@@ -49,6 +52,6 @@ class Gallery extends React.Component {
 let location = '1';
 
 ReactDOM.render(
-  <Gallery className={gallery.body} location={location}/>,
+  <Gallery location={location}/>,
   document.getElementById('carousel')
 );

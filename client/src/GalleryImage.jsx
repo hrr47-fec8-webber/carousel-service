@@ -5,7 +5,7 @@ const GalleryImage = ({image, length}) => {
   let imgClass = `img${image.img_order}in${length}`;
   let url = `url(${image.url})`;
   return (
-    <div className={`${gallery[imgClass]} overlay`} style={{backgroundImage: url}}></div>
+    <div className={gallery[imgClass]} style={{backgroundImage: url}}></div>
   );
 
 };
