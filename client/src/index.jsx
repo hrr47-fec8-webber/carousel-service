@@ -8,19 +8,19 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
+      images: [],
     };
     this.fetch = this.fetch.bind(this);
   }
 
-  fetch(location) {
-    axios.get(`/api/images/${location}`)
-      .then(data => this.setState({images: data.data}))
-      .catch(err => console.log(err));
-  }
-
   componentDidMount() {
     this.fetch(this.props.location);
+  }
+
+  fetch(location) {
+    axios.get(`/api/images/${location}`)
+      .then((data) => this.setState({ images: data.data }))
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -29,14 +29,17 @@ class Gallery extends React.Component {
     let images;
     if (length > 0) {
       images = (length >= 5 ? this.state.images.slice(0, 5) : this.state.images);
-      div = images.map(image => <GalleryImage image={image} length={images.length} />);
+      div = images.map((image) => <GalleryImage image={image} length={images.length} />);
     }
+
     return (
       <div className={gallery.container}>
         <div className={gallery.flex}>
-          <div className={gallery.grid} onMouseEnter={this.hover} onMouseLeave={this.hover}>
+          <div className={gallery.grid}>
             {div}
-            {this.state.images.length ? <button className={gallery.showAll}>Show all photos</button> : <div></div>}
+            {this.state.images.length
+              ? <button type="submit" className={gallery.showAll}>Show all photos</button>
+              : (<div></div>)}
           </div>
         </div>
       </div>
@@ -44,9 +47,9 @@ class Gallery extends React.Component {
   }
 }
 
-let location = '5';
+let location = '1';
 
 ReactDOM.render(
-  <Gallery location={location}/>,
-  document.getElementById('carousel')
+  <Gallery location={location} />,
+  document.getElementById('carousel'),
 );
