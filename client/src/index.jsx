@@ -8,17 +8,9 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: 'red',
       images: []
     };
-    this.hover = this.hover.bind(this);
     this.fetch = this.fetch.bind(this);
-  }
-
-  hover() {
-    this.setState({
-      color: this.state.color === 'red' ? 'blue' : 'red'
-    });
   }
 
   fetch(location) {
@@ -39,10 +31,12 @@ class Gallery extends React.Component {
       div = images.map(image => <GalleryImage image={image} length={images.length} />);
     }
     return (
-      <div className={gallery.body}>
-        <div className={gallery.grid} onMouseEnter={this.hover} onMouseLeave={this.hover}>
-          {div}
-          {this.state.images.length ? <button className={gallery.showAll}>Show all photos</button> : <div></div>}
+      <div className={gallery.container}>
+        <div className={gallery.flex}>
+          <div className={gallery.grid} onMouseEnter={this.hover} onMouseLeave={this.hover}>
+            {div}
+            {this.state.images.length ? <button className={gallery.showAll}>Show all photos</button> : <div></div>}
+          </div>
         </div>
       </div>
     );

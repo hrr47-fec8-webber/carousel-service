@@ -1,19 +1,33 @@
-.body {
-  height: 100%;
-}
 
 .grid {
   display: grid;
-  position: relative;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   width: 100%;
-  max-width: 1100px;
-  height: 500px;
+  max-width: 1240px;
+  max-height: 450px;
+  min-height: 350px;
+  min-width: 500px;
+  height: 100%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   column-gap: 9px;
   row-gap: 9px;
   background-color: white;
+}
+
+.flex {
+  margin: 0 auto;
+  width: 800px;
+  display: flex;
+  position: relative;
+  align-content: center;
+  padding-bottom: 45%;
+}
+
+.container {
+  margin: 20px;
 }
 
 .img {
@@ -58,10 +72,34 @@
 .showAll {
   cursor: pointer;
   position: absolute;
-  top: 89%;
+  bottom: 25px;
   right: 30px;
   background-color: white;
   padding: 8px 15px;
   border: 1px solid black;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .flex {
+    width: 650px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .flex {
+    width: 900px;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .flex {
+    width: 1000px;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .flex {
+    width: 1100px;
+  }
 }
