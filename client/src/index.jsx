@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import gallery from './gallery.css';
+import lightbox from './LightboxComponents/lightbox.css';
 import GalleryImage from './GalleryImage.jsx';
 
 class Gallery extends React.Component {
@@ -22,8 +23,7 @@ class Gallery extends React.Component {
 
   fetch(location) {
     axios.get(`/api/images/${location}`)
-      .then((data) => this.setState({ images: data.data }))
-      .catch((err) => console.log(err));
+      .then((data) => this.setState({ images: data.data }));
   }
 
   toggle(e) {
@@ -49,13 +49,16 @@ class Gallery extends React.Component {
     }
 
     return (
-      <div className={gallery.container}>
-        <div className={gallery.flex}>
-          <div className={gallery.grid} onClick={this.toggle}>
-            {div}
-            {this.state.images.length
-              ? <button type="submit" className={gallery.showAll}>Show all photos</button>
-              : (<div> </div>)}
+      <div>
+        <div className={this.state.lightbox ? lightbox.show : lightbox.hide}> hi </div>
+        <div className={gallery.container}>
+          <div className={gallery.flex}>
+            <div className={gallery.grid} onClick={this.toggle}>
+              {div}
+              {this.state.images.length
+                ? <button type="submit" className={gallery.showAll}>Show all photos</button>
+                : (<div> </div>)}
+            </div>
           </div>
         </div>
       </div>
