@@ -1,8 +1,8 @@
 import React from 'react';
 import lightbox from './lightbox.css';
 
-const PrevArrow = ({ prev }) => (
-  <div className={lightbox.arrow} onClick={prev}>
+const PrevArrow = ({ prev, selected }) => (
+  <div className={selected === 1 ? lightbox.arrowOff : lightbox.arrow} onClick={prev}>
     {'<'}
   </div>
 );
