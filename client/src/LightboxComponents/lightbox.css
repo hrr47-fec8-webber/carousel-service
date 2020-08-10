@@ -1,0 +1,114 @@
+.modal {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 1;
+  background-color: white;
+  visibility: visible;
+  transition: 0.4s ease;
+}
+
+.off {
+  composes: modal;
+  height: 0;
+  top: 100%;
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(2px);
+}
+
+.container {
+  margin: 40px;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 10fr;
+  grid-gap: 10px;
+}
+
+.close{
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+
+.selected {
+  grid-area: 1 / 2 / span 1 / span 1;
+  text-align: center;
+}
+
+.share {
+  grid-area: 1 / 3 / span 1 / span 1;
+}
+
+.button {
+  background-color: rgb(226, 226, 226);
+  border: none;
+  border-radius: 10px;
+  padding: 9px 17px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.arrow {
+  visibility: visible;
+  padding: 15px 20px;
+  border: 1px solid lightgray;
+  border-radius: 50%/50%;
+}
+
+
+.arrow:hover {
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1000px rgba(204, 203, 203, 0.2);
+  transition: box-shadow 0.1s ease;
+}
+
+
+.arrowOff {
+  composes: arrow;
+  visibility: hidden;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1000px rgba(112, 112, 112, 0.2);
+  transition: box-shadow 0.1s ease;
+
+}
+
+.arrow:active, .button:active {
+  animation: scale 500ms ease;
+}
+
+@keyframes scale {
+  to {
+    transform: scale(0.9);
+  }
+}
+
+.carousel {
+  grid-area: 2 / 1 / span 1 / span 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image {
+  display: show;
+  max-width: 75%;
+  animation: fadein 1s ease;
+}
+
+.imageOff {
+  display: none;
+}
+
+@keyframes fadein {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}

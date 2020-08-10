@@ -2,12 +2,12 @@ import React from 'react';
 import gallery from './gallery.css';
 
 const GalleryImage = ({image, length}) => {
-  let imgClass = `img${image.img_order}in${length}`;
-  let url = `url(${image.url})`;
+  const id = image.img_order;
+  const imgClass = `img${id}in${length}`;
+  const url = `url(${image.url})`;
   return (
-    <div className={gallery[imgClass]} style={{backgroundImage: url}}></div>
+    <div className={gallery[imgClass]} style={{ backgroundImage: url }} id={id}> </div>
   );
-
 };
 
 export default GalleryImage;
