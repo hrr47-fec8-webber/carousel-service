@@ -13,9 +13,7 @@ const Lightbox = ({ toggle, next, prev, images, selected }) => (
         </button>
       </div>
       <div className={lightbox.selected}>
-        {selected}
-        /
-        {images.length}
+        {`${selected} / ${images.length}`}
       </div>
       <div className={lightbox.share}> </div>
       <div className={lightbox.carousel}>
