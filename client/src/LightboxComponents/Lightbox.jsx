@@ -1,41 +1,40 @@
 import React from 'react';
 import lightbox from './lightbox.css';
+import PrevArrow from './PrevArrow.jsx';
+import NextArrow from './NextArrow.jsx';
 
 class Lightbox extends React.Component {
   constructor(props) {
     super(props);
-    const { visible, selected, images } = this.props;
-    this.state = {
-      images,
-      selected,
-      visible,
-    };
   }
 
   render() {
-    const {
-      visible,
-      selected,
-      images,
-      toggle
-    } = this.props;
+    const { toggle, next, prev, images, selected } = this.props;
 
     return (
-      <div>
-        <button type="submit" onClick={toggle}>
-          <span>X </span>
-          Close
-        </button>
-        <div>
-          {selected}
-          /
-          {images.length}
+      <div className={lightbox.container}>
+        <div className={lightbox.grid}>
+          <div className={lightbox.close}>
+            <button className={lightbox.button} type="submit" onClick={toggle}>
+              <span>X </span>
+              Close
+            </button>
+          </div>
+          <div className={lightbox.selected}>
+            {selected}
+            /
+            {images.length}
+          </div>
+          <div className={lightbox.share}> </div>
+          <div className={lightbox.carousel}>
+            <PrevArrow prev={prev} />
+            <div>
+              hi
+              {/* <img src={images[selected - 1].url} alt="" /> */}
+            </div>
+            <NextArrow next={next} />
+          </div>
         </div>
-        {/* <PrevArrow /> */}
-        <div>
-          {/* <img src={images[selected - 1].url} alt="" /> */}
-        </div>
-        {/* <NextArrow /> */}
       </div>
     );
   }

@@ -15,6 +15,9 @@ class Gallery extends React.Component {
     };
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.escFunc = this.escFunc.bind(this);
+    this.next = this.next.bind(this);
+    this.prev = this.prev.bind(this);
   }
 
   componentDidMount() {
@@ -28,9 +31,35 @@ class Gallery extends React.Component {
 
   toggle(e) {
     this.setState({
-      selected: e.target.id || 1,
+      selected: Number(e.target.id) || 1,
       modal: !this.state.modal,
     });
+  }
+
+  prev() {
+    if (this.state.selected > 1) {
+      const number = this.state.selected - 1;
+      this.setState({
+        selected: number
+      });
+    }
+  }
+
+  next() {
+    if (this.state.selected < this.state.images.length) {
+      const number = this.state.selected + 1;
+      this.setState({
+        selected: number,
+      });
+    }
+  }
+
+  escFunc(e) {
+    if (e.keyCode === 27) {
+      this.setState({
+        modal: false,
+      });
+    }
   }
 
   render() {
@@ -46,13 +75,14 @@ class Gallery extends React.Component {
       <div>
         <div className={modal ? lightbox.modal : lightbox.off}>
           <Lightbox
-            visible={modal}
             selected={selected}
             images={images}
             toggle={this.toggle}
+            next={this.next}
+            prev={this.prev}
           />
         </div>
-        <div className={gallery.container}>
+        <div className={gallery.container} onKeyDown={this.escFunc}>
           <div className={gallery.flex}>
             <div className={gallery.grid} onClick={this.toggle}>
               {batch.map((image) => (
