@@ -3,6 +3,7 @@ import axios from 'axios';
 import gallery from './gallery.css';
 import lightbox from './LightboxComponents/lightbox.css';
 import GalleryImage from './GalleryImage.jsx';
+import Lightbox from './LightboxComponents/Lightbox.jsx';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Gallery extends React.Component {
     this.state = {
       images: [],
       selected: 1,
-      lightbox: false,
+      modal: false,
     };
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -28,32 +29,39 @@ class Gallery extends React.Component {
   toggle(e) {
     this.setState({
       selected: e.target.id || 1,
-      lightbox: !this.state.lightbox,
+      modal: !this.state.modal,
     });
   }
 
   render() {
-    if (this.state.images.length === 0) {
+    const { images, selected, modal } = this.state;
+    if (images.length === 0) {
       return null;
     }
-    const images = (this.state.images.length >= 5
-      ? this.state.images.slice(0, 5)
-      : this.state.images);
+    const batch = (images.length >= 5
+      ? images.slice(0, 5)
+      : images);
 
     return (
       <div>
-        <div className={this.state.lightbox ? lightbox.modal : lightbox.modal.off}>
+        <div className={modal ? lightbox.modal : lightbox.off}>
+          <Lightbox
+            visible={modal}
+            selected={selected}
+            images={images}
+            toggle={this.toggle}
+          />
         </div>
         <div className={gallery.container}>
           <div className={gallery.flex}>
             <div className={gallery.grid} onClick={this.toggle}>
-              {images.map((image) => (
+              {batch.map((image) => (
                 <GalleryImage
                   image={image}
-                  length={images.length}
+                  length={batch.length}
                 />
               ))}
-              {this.state.images.length
+              {images.length
                 ? <button type="submit" className={gallery.showAll}>Show all photos</button>
                 : (<div> </div>)}
             </div>

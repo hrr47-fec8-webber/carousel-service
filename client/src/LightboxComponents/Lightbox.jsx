@@ -2,29 +2,40 @@ import React from 'react';
 import lightbox from './lightbox.css';
 
 class Lightbox extends React.Component {
-  constructor({ images, selected }) {
-    super({ images, selected });
+  constructor(props) {
+    super(props);
+    const { visible, selected, images } = this.props;
     this.state = {
-      images: [],
-      current: selected,
+      images,
+      selected,
+      visible,
     };
   }
 
   render() {
+    const {
+      visible,
+      selected,
+      images,
+      toggle
+    } = this.props;
+
     return (
       <div>
-        <button type="submit">
-          <span>X</span>
+        <button type="submit" onClick={toggle}>
+          <span>X </span>
           Close
         </button>
-        <div>{this.state.current}
-          / {this.state.images.length}
-        </div>
-        <PrevArrow />
         <div>
-          <img src={this.state.images[this.state.selected - 1].url} alt="" />
+          {selected}
+          /
+          {images.length}
         </div>
-        <NextArrow />
+        {/* <PrevArrow /> */}
+        <div>
+          {/* <img src={images[selected - 1].url} alt="" /> */}
+        </div>
+        {/* <NextArrow /> */}
       </div>
     );
   }
