@@ -96,6 +96,16 @@
   border-radius: 10px;
 }
 
+.showAll:active {
+  animation: scale 500ms ease;
+}
+
+@keyframes scale {
+  to {
+    transform: scale(0.85);
+  }
+}
+
 @media screen and (max-width: 700px) {
   .flex {
     width: 600px;

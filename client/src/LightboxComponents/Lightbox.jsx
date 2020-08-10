@@ -20,10 +20,7 @@ const Lightbox = ({ toggle, next, prev, images, selected }) => (
       <div className={lightbox.share}> </div>
       <div className={lightbox.carousel}>
         <PrevArrow prev={prev} selected={selected} />
-        <div>
-          hi
-          {/* <img src={images[selected - 1].url} alt="" /> */}
-        </div>
+        {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt=""></img>)}
         <NextArrow next={next} selected={selected} length={images.length} />
       </div>
     </div>
