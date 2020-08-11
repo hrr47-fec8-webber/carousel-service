@@ -24,6 +24,7 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "express": "^4.17.1",
+    "identity-obj-proxy": "^3.0.0",
     "jquery": "^3.5.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
@@ -48,5 +49,22 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev": "^1.1.1"
+  },
+  "babel": {
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+  },
+  "jest": {
+    "verbose": true,
+    "modulePaths": ["/client/src/", "/client/src/LightboxComponents"],
+    "moduleFileExtensions": ["js", "jsx"],
+    "moduleDirectories": ["node_modules", "bower_components", "client"],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "testMatch": ["**/__tests__/*.js?(x)"],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }
