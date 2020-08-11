@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GalleryImage Componet renders correctly 1`] = `
+exports[`Gallery Image Component renders correctly 1`] = `
 <div
   className="img1in1"
   id={1}
@@ -11,5 +11,24 @@ exports[`GalleryImage Componet renders correctly 1`] = `
   }
 >
    
+</div>
+`;
+
+exports[`Next Image Arrow Component renders correctly 1`] = `
+<div
+  className="arrow"
+  id="next-arrow"
+>
+  &gt;
+</div>
+`;
+
+exports[`Previous Image Arrow Component renders correctly 1`] = `
+<div
+  className="arrow"
+  id="prev-arrow"
+  onClick={[Function]}
+>
+  &lt;
 </div>
 `;

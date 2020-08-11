@@ -73,7 +73,7 @@ class Gallery extends React.Component {
 
     return (
       <div>
-        <div className={modal ? lightbox.modal : lightbox.off}>
+        <div className={modal ? lightbox.modal : lightbox.off} id="lightbox">
           <Lightbox
             selected={selected}
             images={images}
@@ -84,7 +84,7 @@ class Gallery extends React.Component {
         </div>
         <div className={gallery.container} onKeyDown={this.escFunc}>
           <div className={gallery.flex}>
-            <div className={gallery.grid} onClick={this.toggle}>
+            <div className={gallery.grid} onClick={this.toggle} id="gallery-grid">
               {batch.map((image) => (
                 <GalleryImage
                   image={image}
