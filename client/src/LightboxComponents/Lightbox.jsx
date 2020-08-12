@@ -2,13 +2,16 @@ import React from 'react';
 import lightbox from './lightbox.css';
 import PrevArrow from './PrevArrow.jsx';
 import NextArrow from './NextArrow.jsx';
+import X from './X.jsx';
 
 const Lightbox = ({ toggle, next, prev, images, selected }) => (
   <div className={lightbox.container}>
     <div className={lightbox.grid}>
       <div className={lightbox.close}>
         <button className={lightbox.button} type="submit" onClick={toggle} id="close">
-          <span className={lightbox.x}>X </span>
+          <span className={lightbox.x}>
+            <X />
+          </span>
           Close
         </button>
       </div>

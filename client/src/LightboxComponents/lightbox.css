@@ -57,6 +57,9 @@
 }
 
 .x {
+  position: relative;
+  right: 4px;
+  top: 1px;
   font-size: 14px;
   padding: 4px;
 }
