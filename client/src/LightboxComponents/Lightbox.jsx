@@ -3,6 +3,8 @@ import lightbox from './lightbox.css';
 import PrevArrow from './PrevArrow.jsx';
 import NextArrow from './NextArrow.jsx';
 import X from './X.jsx';
+import ShareIcon from './ShareIcon.jsx';
+import LikeIcon from './LikeIcon.jsx';
 
 const Lightbox = ({ toggle, next, prev, images, selected }) => (
   <div className={lightbox.container}>
@@ -18,7 +20,10 @@ const Lightbox = ({ toggle, next, prev, images, selected }) => (
       <div className={lightbox.selected}>
         {`${selected} / ${images.length}`}
       </div>
-      <div className={lightbox.share}> </div>
+      <div className={lightbox.share}>
+        <ShareIcon />
+        <LikeIcon />
+      </div>
       <div className={lightbox.carousel}>
         <PrevArrow prev={prev} selected={selected} />
         {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt="" key={image.id}></img>)}

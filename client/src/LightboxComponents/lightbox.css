@@ -64,13 +64,33 @@
   padding: 4px;
 }
 
+.share {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  right: 20px;
+}
+
+.shareIcon, .likeIcon {
+  padding: 6px;
+  border-radius: 50%/50%;
+  background-color: white;
+}
+
+.shareIcon {
+  position: relative;
+  right: 10px;
+}
+
+.shareIcon:hover, .likeIcon:hover {
+  background-color: rgba(216, 216, 216, 0.2);
+  cursor: pointer;
+}
+
 .arrow {
   visibility: visible;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-style: bold;
-  font-size: 16px;
-  padding: 16px 19px;
-  border: 1px solid lightgray;
+  padding: 12px 20px;
+  border: 1px solid rgb(161, 160, 160);
   border-radius: 50%/50%;
 }
 
