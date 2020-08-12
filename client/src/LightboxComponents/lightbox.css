@@ -48,7 +48,7 @@
 
 .button {
   background-color: rgb(226, 226, 226);
-  font-family: 'Airbnb Cereal App Book';
+  font-family: 'CircularXXWebTrial-BookTrial';
   border: none;
   border-radius: 10px;
   padding: 9px 17px;
@@ -63,7 +63,10 @@
 
 .arrow {
   visibility: visible;
-  padding: 15px 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: bold;
+  font-size: 16px;
+  padding: 16px 19px;
   border: 1px solid lightgray;
   border-radius: 50%/50%;
 }
@@ -132,4 +135,11 @@
     font-style: normal;
     font-weight: normal;
     src: local('Airbnb Cereal App Book'), url('../fonts/cereal/AirbnbCerealBook.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'CircularXXWebTrial-BookTrial';
+      font-style: normal;
+      font-weight: normal;
+      src: url('../fonts/circular/CircularXXWebTrial-BookTrial.woff') format('woff');
     }
