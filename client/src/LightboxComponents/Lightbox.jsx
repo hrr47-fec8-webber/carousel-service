@@ -8,7 +8,7 @@ const Lightbox = ({ toggle, next, prev, images, selected }) => (
     <div className={lightbox.grid}>
       <div className={lightbox.close}>
         <button className={lightbox.button} type="submit" onClick={toggle} id="close">
-          <span>X </span>
+          <span className={lightbox.x}>X </span>
           Close
         </button>
       </div>

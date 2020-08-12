@@ -39,6 +39,7 @@ class Gallery extends React.Component {
 
   toggle(e) {
     let num = (e && e.target.id ? Number(e.target.id) : 1);
+    // eslint-disable-next-line no-restricted-globals
     if (isNaN(num)) { num = 1; }
     this.setState({
       selected: num,

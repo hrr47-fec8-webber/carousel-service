@@ -1,5 +1,6 @@
 const db = require('../db');
 
+// eslint-disable-next-line arrow-body-style
 const insert = (locationId, url, order) => {
   return new Promise((resolve, reject) => {
     db.query('INSERT INTO images (location_id, url, img_order) VALUES (?, ?, ?)', [locationId, url, order], (err, success) => {
@@ -12,15 +13,14 @@ const insert = (locationId, url, order) => {
   });
 };
 
-
 const seed = () => {
-  let allPromises = [];
+  const allPromises = [];
   let primary = 1;
   while (primary <= 100) {
-    let totalImages = Math.floor(Math.random() * (25)) + 5;
+    const totalImages = Math.floor(Math.random() * (25)) + 5;
     for (let i = 1; i < totalImages; i++) {
-      let img = Math.ceil(Math.random() * 50);
-      let imgUrl = `https://team-webber-image-carousel-472020.s3-us-west-2.amazonaws.com/${img}.jpg`;
+      const img = Math.ceil(Math.random() * 50);
+      const imgUrl = `https://team-webber-image-carousel-472020.s3-us-west-2.amazonaws.com/${img}.jpg`;
       allPromises.push(insert(primary, imgUrl, i));
     }
     primary++;
