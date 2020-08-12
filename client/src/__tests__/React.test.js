@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import axios from 'axios';
 import { shallow, mount, render } from 'enzyme';
 
@@ -11,35 +10,117 @@ import NextArrow from '../LightboxComponents/NextArrow.jsx';
 
 jest.mock('axios');
 
+const images = [
+  {
+    id: 5,
+    url: 'abcd',
+    location_id: 7,
+    img_order: 1,
+  },
+  {
+    id: 6,
+    url: 'efgh',
+    location_id: 7,
+    img_order: 2,
+  },
+  {
+    id: 7,
+    url: 'ijkl',
+    location_id: 7,
+    img_order: 3,
+  },
+  {
+    id: 8,
+    url: 'mnop',
+    location_id: 7,
+    img_order: 4,
+  },
+];
+
+const res = { data: images };
+
+axios.get = jest.fn().mockResolvedValue(res);
+
 describe('Gallery Component', () => {
-  const images = [
-    {
-      id: 5,
-      url: 'abcd',
-      location_id: 7,
-      img_order: 1,
-    },
-    {
-      id: 6,
-      url: 'efgh',
-      location_id: 7,
-      img_order: 2,
-    },
-    {
-      id: 7,
-      url: 'ijkl',
-      location_id: 7,
-      img_order: 3,
-    },
-    {
-      id: 8,
-      url: 'mnop',
-      location_id: 7,
-      img_order: 4,
-    },
-  ];
-  const res = { data: images };
-  axios.get.mockResolvedValue(res);
+  it('renders correctly', async () => {
+    const galleryInstance = await shallow(<Gallery location={7} />);
+    expect(galleryInstance).toMatchSnapshot();
+    galleryInstance.unmount();
+  });
+
+  it('should make an axios get request upon mounting', async () => {
+    const getSpy = jest.spyOn(axios, 'get');
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(getSpy).toHaveBeenCalled();
+    galleryInstance.unmount();
+    getSpy.mockReset();
+    getSpy.mockRestore();
+  });
+
+  it('should generate a number of gallery images based on size of return data', async () => {
+    axios.get = jest.fn().mockResolvedValue(res);
+    const galleryInstance = await mount(<Gallery location={7} />);
+
+    expect(galleryInstance.state().selected).toBe(1);
+    expect(galleryInstance.state().images.length).toBe(4);
+
+    galleryInstance.unmount();
+  });
+
+  it('should toggle classes on the lightbox when gallery is clicked', async () => {
+    const galleryInstance = await shallow(<Gallery location={7} />);
+
+    expect(galleryInstance.find('#lightbox').hasClass('off')).toBe(true);
+    expect(galleryInstance.find('#lightbox').hasClass('modal')).toBe(false);
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+
+    expect(galleryInstance.find('#lightbox').hasClass('off')).toBe(false);
+    expect(galleryInstance.find('#lightbox').hasClass('modal')).toBe(true);
+
+    galleryInstance.unmount();
+  });
+
+  it('should advance images when next arrow is clicked in lightbox', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#next-arrow').simulate('click');
+    expect(galleryInstance.state().selected).toBe(2);
+    galleryInstance.unmount();
+  });
+
+  it('should go to previous image when previous arrow is clicked in lightbox', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#next-arrow').simulate('click');
+    expect(galleryInstance.state().selected).toBe(2);
+
+    galleryInstance.find('#prev-arrow').simulate('click');
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.unmount();
+  });
+
+  it('should close the lightbox when close button is clicked', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().modal).toBe(false);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+    expect(galleryInstance.state().modal).toBe(true);
+
+    galleryInstance.find('#close').simulate('click');
+    expect(galleryInstance.state().modal).toBe(false);
+
+    galleryInstance.unmount();
+  });
 });
 
 describe('Gallery Image Component', () => {

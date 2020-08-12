@@ -7,7 +7,7 @@ const Lightbox = ({ toggle, next, prev, images, selected }) => (
   <div className={lightbox.container}>
     <div className={lightbox.grid}>
       <div className={lightbox.close}>
-        <button className={lightbox.button} type="submit" onClick={toggle}>
+        <button className={lightbox.button} type="submit" onClick={toggle} id="close">
           <span>X </span>
           Close
         </button>
@@ -18,7 +18,7 @@ const Lightbox = ({ toggle, next, prev, images, selected }) => (
       <div className={lightbox.share}> </div>
       <div className={lightbox.carousel}>
         <PrevArrow prev={prev} selected={selected} />
-        {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt=""></img>)}
+        {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt="" key={image.id}></img>)}
         <NextArrow next={next} selected={selected} length={images.length} />
       </div>
     </div>

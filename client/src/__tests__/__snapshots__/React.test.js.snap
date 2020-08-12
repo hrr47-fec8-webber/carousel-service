@@ -1,9 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Gallery Component renders correctly 1`] = `
+<div>
+  <div
+    className="off"
+    id="lightbox"
+  >
+    <Lightbox
+      images={
+        Array [
+          Object {
+            "id": 5,
+            "img_order": 1,
+            "location_id": 7,
+            "url": "abcd",
+          },
+          Object {
+            "id": 6,
+            "img_order": 2,
+            "location_id": 7,
+            "url": "efgh",
+          },
+          Object {
+            "id": 7,
+            "img_order": 3,
+            "location_id": 7,
+            "url": "ijkl",
+          },
+          Object {
+            "id": 8,
+            "img_order": 4,
+            "location_id": 7,
+            "url": "mnop",
+          },
+        ]
+      }
+      next={[Function]}
+      prev={[Function]}
+      selected={1}
+      toggle={[Function]}
+    />
+  </div>
+  <div
+    className="container"
+    onKeyDown={[Function]}
+  >
+    <div
+      className="flex"
+    >
+      <div
+        className="grid"
+        id="gallery-grid"
+        onClick={[Function]}
+      >
+        <GalleryImage
+          image={
+            Object {
+              "id": 5,
+              "img_order": 1,
+              "location_id": 7,
+              "url": "abcd",
+            }
+          }
+          key="5"
+          length={4}
+        />
+        <GalleryImage
+          image={
+            Object {
+              "id": 6,
+              "img_order": 2,
+              "location_id": 7,
+              "url": "efgh",
+            }
+          }
+          key="6"
+          length={4}
+        />
+        <GalleryImage
+          image={
+            Object {
+              "id": 7,
+              "img_order": 3,
+              "location_id": 7,
+              "url": "ijkl",
+            }
+          }
+          key="7"
+          length={4}
+        />
+        <GalleryImage
+          image={
+            Object {
+              "id": 8,
+              "img_order": 4,
+              "location_id": 7,
+              "url": "mnop",
+            }
+          }
+          key="8"
+          length={4}
+        />
+        <button
+          className="showAll"
+          type="submit"
+        >
+          Show all photos
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Gallery Image Component renders correctly 1`] = `
 <div
   className="img1in1"
   id={1}
+  name={1}
   style={
     Object {
       "backgroundImage": "url(xyz)",

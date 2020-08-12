@@ -36,6 +36,7 @@
     "precss": "^4.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.7",
     "sinon": "^9.0.3",
     "style-loader": "^1.2.1"
   },
