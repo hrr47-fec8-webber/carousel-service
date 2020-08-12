@@ -18,20 +18,29 @@ class Gallery extends React.Component {
     this.escFunc = this.escFunc.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+    this._isMounted = false;
   }
 
   componentDidMount() {
-    this.fetch(this.props.location);
+    this._isMounted = true;
+    this._isMounted && this.fetch(this.props.location);
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   fetch(location) {
     axios.get(`/api/images/${location}`)
-      .then((data) => this.setState({ images: data.data }));
+      .then((data) => {
+        this._isMounted && this.setState({ images: data.data });
+      });
   }
 
   toggle(e) {
+    const num = (e && e.target.id ? Number(e.target.id) : 1);
     this.setState({
-      selected: Number(e.target.id) || 1,
+      selected: num,
       modal: !this.state.modal,
     });
   }
@@ -40,7 +49,7 @@ class Gallery extends React.Component {
     if (this.state.selected > 1) {
       const number = this.state.selected - 1;
       this.setState({
-        selected: number
+        selected: number,
       });
     }
   }
@@ -73,7 +82,7 @@ class Gallery extends React.Component {
 
     return (
       <div>
-        <div className={modal ? lightbox.modal : lightbox.off}>
+        <div className={modal ? lightbox.modal : lightbox.off} id="lightbox">
           <Lightbox
             selected={selected}
             images={images}
@@ -84,11 +93,12 @@ class Gallery extends React.Component {
         </div>
         <div className={gallery.container} onKeyDown={this.escFunc}>
           <div className={gallery.flex}>
-            <div className={gallery.grid} onClick={this.toggle}>
+            <div className={gallery.grid} onClick={this.toggle} id="gallery-grid">
               {batch.map((image) => (
                 <GalleryImage
                   image={image}
                   length={batch.length}
+                  key={image.id}
                 />
               ))}
               {images.length

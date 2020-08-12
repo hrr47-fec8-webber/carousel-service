@@ -17,7 +17,9 @@
     "autoprefixer": "^9.8.6",
     "axios": "^0.19.2",
     "bluebird": "^3.7.2",
-    "bootstrap": "^4.5.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "enzyme-to-json": "^3.5.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.0",
@@ -25,17 +27,17 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "express": "^4.17.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-sinon": "^1.0.4",
     "jquery": "^3.5.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
-    "popper.js": "^1.16.1",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
     "react": "^16.13.1",
-    "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
-    "sass": "^1.26.10",
-    "sass-loader": "^9.0.3",
+    "regenerator-runtime": "^0.13.7",
+    "sinon": "^9.0.3",
     "style-loader": "^1.2.1"
   },
   "devDependencies": {
@@ -53,5 +55,44 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev": "^1.1.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "modulePaths": [
+      "/client/src/",
+      "/client/src/LightboxComponents"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "client"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "testMatch": [
+      "**/__tests__/*.js?(x)"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-sinon",
+      "<rootDir>/client/src/testconfig/setupTest.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }
