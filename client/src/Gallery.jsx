@@ -38,7 +38,8 @@ class Gallery extends React.Component {
   }
 
   toggle(e) {
-    const num = (e && e.target.id ? Number(e.target.id) : 1);
+    let num = (e && e.target.id ? Number(e.target.id) : 1);
+    if (isNaN(num)) { num = 1; }
     this.setState({
       selected: num,
       modal: !this.state.modal,
