@@ -25,4 +25,4 @@ build/
 
 #Files
 /server/awsconfig.js
-bundle.js
+/client/dist/bundle.js
