@@ -13,7 +13,10 @@ class Gallery extends React.Component {
       images: [],
       selected: 1,
       modal: false,
+      width: 0,
+      height: 0,
     };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
     this.escFunc = this.escFunc.bind(this);
@@ -24,11 +27,18 @@ class Gallery extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
     this._isMounted && this.fetch(this.props.location);
   }
 
   componentWillUnmount() {
     this._isMounted = false;
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight});
   }
 
   fetch(location) {
@@ -75,7 +85,7 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { images, selected, modal } = this.state;
+    const { images, selected, modal, height, width } = this.state;
     if (images.length === 0) {
       return null;
     }
@@ -85,13 +95,15 @@ class Gallery extends React.Component {
 
     return (
       <div>
-        <div className={modal ? lightbox.modal : lightbox.off} id="lightbox">
+        <div className={modal ? lightbox.modal : lightbox.off} id="lightbox" height={height} width={width}>
           <Lightbox
             selected={selected}
             images={images}
             toggle={this.toggle}
             next={this.next}
             prev={this.prev}
+            height={height}
+            width={width}
           />
         </div>
         <div className={gallery.container} onKeyDown={this.escFunc}>
