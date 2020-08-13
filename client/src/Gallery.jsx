@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
 import gallery from './gallery.css';

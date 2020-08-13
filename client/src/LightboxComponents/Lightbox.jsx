@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import lightbox from './lightbox.css';
 import PrevArrow from './PrevArrow.jsx';
@@ -6,7 +7,9 @@ import X from './X.jsx';
 import ShareIcon from './ShareIcon.jsx';
 import LikeIcon from './LikeIcon.jsx';
 
-const Lightbox = ({ toggle, next, prev, images, selected }) => (
+const Lightbox = ({
+  toggle, next, prev, images, selected,
+}) => (
   <div className={lightbox.container}>
     <div className={lightbox.grid}>
       <div className={lightbox.close}>
@@ -26,7 +29,7 @@ const Lightbox = ({ toggle, next, prev, images, selected }) => (
       </div>
       <div className={lightbox.carousel}>
         <PrevArrow prev={prev} selected={selected} />
-        {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt="" key={image.id}></img>)}
+        {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt="" key={image.id} />)}
         <NextArrow next={next} selected={selected} length={images.length} />
       </div>
     </div>
