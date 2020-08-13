@@ -16,7 +16,7 @@ Image Gallery and Lightbox for AirBnB Clone
 
 ## Usage
 
-This module builds a simple interactive photo gallery for an AirBnB clone. It requires a numeric location ID passed in as props to the gallery component and will fetch images associated with that location.
+This module builds a simple interactive photo gallery for an AirBnB clone. It takes a numeric location ID from the URL and fetches images associated with that location.
 
 ## Requirements
 

@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable no-undef */
+/* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import GalleryImage from '../GalleryImage.jsx';
 import Gallery from '../Gallery.jsx';
-import Lightbox from '../LightboxComponents/Lightbox.jsx';
 import PrevArrow from '../LightboxComponents/PrevArrow.jsx';
 import NextArrow from '../LightboxComponents/NextArrow.jsx';
 
@@ -162,13 +164,12 @@ describe('Previous Image Arrow Component', () => {
 });
 
 describe('Next Image Arrow Component', () => {
-  const props = {
-    selected: 2,
-    prev() {},
-    length: 3,
-  };
-
   it('renders correctly', () => {
+    const props = {
+      selected: 2,
+      prev() {},
+      length: 3,
+    };
     const nextArrow = shallow(
       <NextArrow
         selected={props.selected}
@@ -199,5 +200,5 @@ describe('Next Image Arrow Component', () => {
     wrapper.setProps({ selected: 3, prev: props.prev, length: 3 });
     expect(wrapper.find('#next-arrow').hasClass('arrow')).toBe(false);
     expect(wrapper.find('#next-arrow').hasClass('arrowOff')).toBe(true);
-  })
+  });
 });

@@ -1,3 +1,10 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-undef */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
@@ -24,14 +31,15 @@ class Gallery extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
-    this._isMounted && this.fetch(this.props.location);
+    this._isMounted && this.fetch();
   }
 
   componentWillUnmount() {
     this._isMounted = false;
   }
 
-  fetch(location) {
+  fetch() {
+    const location = window.location.href.split('/')[3];
     axios.get(`/api/images/${location}`)
       .then((data) => {
         this._isMounted && this.setState({ images: data.data });
