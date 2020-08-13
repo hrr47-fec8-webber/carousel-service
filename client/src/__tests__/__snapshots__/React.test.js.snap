@@ -43,7 +43,6 @@ exports[`Gallery Component renders correctly 1`] = `
   </div>
   <div
     className="container"
-    onKeyDown={[Function]}
   >
     <div
       className="flex"
@@ -52,6 +51,7 @@ exports[`Gallery Component renders correctly 1`] = `
         className="grid"
         id="gallery-grid"
         onClick={[Function]}
+        onKeyDown={[Function]}
       >
         <GalleryImage
           image={
