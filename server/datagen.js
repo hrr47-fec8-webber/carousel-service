@@ -20,7 +20,7 @@ const seed = () => {
     const totalImages = Math.floor(Math.random() * (25)) + 5;
     for (let i = 1; i < totalImages; i++) {
       const img = Math.ceil(Math.random() * 50);
-      const imgUrl = `https://team-webber-image-carousel-472020.s3-us-west-2.amazonaws.com/${img}.jpg`;
+      const imgUrl = `https://team-webber-image-carousel-472020.s3-us-west-2.amazonaws.com/${img}.webp`;
       allPromises.push(insert(primary, imgUrl, i));
     }
     primary++;

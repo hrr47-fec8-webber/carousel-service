@@ -135,7 +135,7 @@
 .image {
   display: show;
   max-width: 70%;
-  animation: fadein 1s ease;
+  animation: fadein .7s ease;
 }
 
 .imageOff {
@@ -145,6 +145,11 @@
 @keyframes fadein {
   0% {opacity: 0}
   100% {opacity: 1}
+}
+
+@keyframes fadeout {
+  0% {opacity: 1}
+  100% {opacity: 0}
 }
 
 @font-face {
