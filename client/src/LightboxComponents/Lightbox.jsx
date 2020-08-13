@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React from 'react';
 import lightbox from './lightbox.css';
@@ -8,7 +9,7 @@ import ShareIcon from './ShareIcon.jsx';
 import LikeIcon from './LikeIcon.jsx';
 
 const Lightbox = ({
-  toggle, next, prev, images, selected
+  toggle, next, prev, images, selected,
 }) => (
   <div className={lightbox.container}>
     <div className={lightbox.grid}>

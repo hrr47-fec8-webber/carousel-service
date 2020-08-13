@@ -1,3 +1,10 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-undef */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
@@ -13,10 +20,7 @@ class Gallery extends React.Component {
       images: [],
       selected: 1,
       modal: false,
-      width: 0,
-      height: 0,
     };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
     this.escFunc = this.escFunc.bind(this);
@@ -27,18 +31,11 @@ class Gallery extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-    this._isMounted && this.fetch(this.props.location);
+    this._isMounted && this.fetch();
   }
 
   componentWillUnmount() {
     this._isMounted = false;
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight});
   }
 
   fetch() {
@@ -93,7 +90,6 @@ class Gallery extends React.Component {
     const batch = (images.length >= 5
       ? images.slice(0, 5)
       : images);
-    console.log(window.location.pathname);
 
     return (
       <div>

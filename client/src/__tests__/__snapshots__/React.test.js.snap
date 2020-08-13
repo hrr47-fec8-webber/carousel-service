@@ -133,7 +133,35 @@ exports[`Next Image Arrow Component renders correctly 1`] = `
   className="arrow"
   id="next-arrow"
 >
-  &gt;
+  <svg
+    height="10"
+    width="6"
+  >
+    <line
+      style={
+        Object {
+          "stroke": "black",
+          "strokeWidth": 1.5,
+        }
+      }
+      x1="0"
+      x2="5"
+      y1="0"
+      y2="5"
+    />
+    <line
+      style={
+        Object {
+          "stroke": "black",
+          "strokeWidth": 1.5,
+        }
+      }
+      x1="0"
+      x2="5"
+      y1="10"
+      y2="5"
+    />
+  </svg>
 </div>
 `;
 
@@ -143,6 +171,35 @@ exports[`Previous Image Arrow Component renders correctly 1`] = `
   id="prev-arrow"
   onClick={[Function]}
 >
-  &lt;
+  <svg
+    height="10"
+    transform="rotate(180)"
+    width="6"
+  >
+    <line
+      style={
+        Object {
+          "stroke": "black",
+          "strokeWidth": 1.5,
+        }
+      }
+      x1="0"
+      x2="5"
+      y1="0"
+      y2="5"
+    />
+    <line
+      style={
+        Object {
+          "stroke": "black",
+          "strokeWidth": 1.5,
+        }
+      }
+      x1="0"
+      x2="5"
+      y1="10"
+      y2="5"
+    />
+  </svg>
 </div>
 `;
