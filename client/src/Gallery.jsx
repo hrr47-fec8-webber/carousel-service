@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
 import gallery from './gallery.css';
@@ -38,7 +39,9 @@ class Gallery extends React.Component {
   }
 
   toggle(e) {
-    const num = (e && e.target.id ? Number(e.target.id) : 1);
+    let num = (e && e.target.id ? Number(e.target.id) : 1);
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(num)) { num = 1; }
     this.setState({
       selected: num,
       modal: !this.state.modal,

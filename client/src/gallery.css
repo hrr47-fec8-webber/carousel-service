@@ -5,10 +5,9 @@
   bottom: 0;
   width: 100%;
   max-width: 1240px;
-  max-height: 425px;
+  max-height: 400px;
   min-height: 300px;
   min-width: 400px;
-  height: 100%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   column-gap: 9px;
@@ -87,6 +86,7 @@
 
 .showAll {
   cursor: pointer;
+  font-family: 'Airbnb Cereal App Medium';
   position: absolute;
   bottom: 25px;
   right: 30px;
@@ -106,24 +106,46 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (min-width: 600px) {
   .flex {
     width: 600px;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 650px) {
   .flex {
-    width: 770px;
+    width: 600px;
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 700px) {
   .flex {
-    width: 950px;
+    width: 650px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .flex {
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .flex {
+    width: 780px;
   }
   .grid {
-    height: 800px;
+    height: 320px;
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  .flex {
+    width: 870px;
+  }
+  .grid {
+    height: 340px;
   }
 }
 
@@ -132,15 +154,22 @@
     width: 1000px;
   }
   .grid {
-    height: 600px;
+    height: 370px;
   }
 }
 
 @media screen and (min-width: 1100px) {
   .flex {
-    width: 1150px;
+    width: 1050px;
   }
   .grid {
-    height: 350px;
+    height: 300px;
   }
 }
+
+@font-face {
+  font-family: 'Airbnb Cereal App Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Medium'), url('./fonts/cereal/AirbnbCerealMedium.woff') format('woff');
+  }

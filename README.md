@@ -1,13 +1,12 @@
 # Project Name
 
-> Image Carousel for AirBnB Clone
+Image Gallery and Lightbox for AirBnB Clone
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/hrr47-fec8-webber/booking-service
+  - https://github.com/hrr47-fec8-webber/reviews-service
+  - https://github.com/hrr47-fec8-webber/moreplacestostay-service
 
 ## Table of Contents
 
@@ -17,14 +16,24 @@
 
 ## Usage
 
-> Some usage instructions
+This module builds a simple interactive photo gallery for an AirBnB clone. It requires a numeric location ID passed in as props to the gallery component and will fetch images associated with that location.
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+- Express 4.17.1
+- Axios 0.19.2
+- React 16.13.1
+- mySQL 2.18.1
+
+Dev:
+- Babel 7.11.1
+- Webpack 4.44.1
+- Jest 26.2.2
+- Enzyme 3.11.0
+- Amazon S3
 
 ## Development
 
@@ -36,4 +45,32 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+
+### Running The Module
+
+Make sure all dependencies are installed and your mySQL server is up and running. From the command line, run the following:
+
+```sh
+npm run seed
+```
+
+This will seed the database with 100 primary records with location IDs spanning 1-100 and anywhere between 4 and 29 images per location. The images themselves are stored in an Amazon S3 bucket with numeric names between 1 and 50. The image selection per location is random.
+
+Once this is done, run:
+
+```sh
+npm start
+npm run build
+```
+Direct your browser to localhost:3001, and you should see the gallery module populated with images from your database. To specify a different location, navigate to index.jsx in the /src folder and edit the location variable.
+
+### Testing
+
+To run tests:
+
+```sh
+npm test
+```
+
+Testing is implemented with Jest and Enzyme.
 

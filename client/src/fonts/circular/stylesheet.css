@@ -1,0 +1,92 @@
+/*
+ *
+ * INSTRUCTIONS
+ *
+ * Copy the Legal Disclaimer and the @font-faces statements to your regular CSS file.
+ * The font file(s) should be placed relative to the regular CSS file.
+ *
+ */
+
+/* trial */
+
+@font-face {
+  font-family: "CircularXXWebTrial-ThinTrial";
+  src: url("CircularXXWebTrial-ThinTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-ThinItalicTrial";
+  src: url("CircularXXWebTrial-ThinItalicTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-LightTrial";
+  src: url("CircularXXWebTrial-LightTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-LightItalicTrial";
+  src: url("CircularXXWebTrial-LightItalicTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-RegularTrial";
+  src: url("CircularXXWebTrial-RegularTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-ItalicTrial";
+  src: url("CircularXXWebTrial-ItalicTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-BookTrial";
+  src: url("CircularXXWebTrial-BookTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-BookItalicTrial";
+  src: url("CircularXXWebTrial-BookItalicTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-MediumTrial";
+  src: url("CircularXXWebTrial-MediumTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-MediumItalicTrial";
+  src: url("CircularXXWebTrial-MediumItalicTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-BoldTrial";
+  src: url("CircularXXWebTrial-BoldTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-BoldItalicTrial";
+  src: url("CircularXXWebTrial-BoldItalicTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-BlackTrial";
+  src: url("CircularXXWebTrial-BlackTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-BlackItalicTrial";
+  src: url("CircularXXWebTrial-BlackItalicTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-ExtraBlackTrial";
+  src: url("CircularXXWebTrial-ExtraBlackTrial.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CircularXXWebTrial-ExtraBlackItalicTrial";
+  src: url("CircularXXWebTrial-ExtraBlackItalicTrial.woff") format("woff");
+}
+
+
