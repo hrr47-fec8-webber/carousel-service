@@ -5,19 +5,16 @@
   bottom: 0;
   width: 100%;
   max-width: 1240px;
-  max-height: 400px;
+  max-height: 450px;
   min-height: 300px;
-  min-width: 400px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  column-gap: 9px;
-  row-gap: 9px;
+  grid-gap: 8px;
   background-color: white;
 }
 
 .flex {
   margin: 0 auto;
-  width: 800px;
   display: flex;
   position: relative;
   align-content: center;
@@ -106,11 +103,7 @@
   }
 }
 
-@media screen and (min-width: 600px) {
-  .flex {
-    width: 600px;
-  }
-}
+
 
 @media screen and (min-width: 650px) {
   .flex {
@@ -128,6 +121,9 @@
   .flex {
     width: 700px;
   }
+  .grid {
+    height: 400px;
+  }
 }
 
 @media screen and (min-width: 850px) {
@@ -135,7 +131,7 @@
     width: 780px;
   }
   .grid {
-    height: 320px;
+    height: 400px;
   }
 }
 
