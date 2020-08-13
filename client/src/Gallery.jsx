@@ -41,7 +41,8 @@ class Gallery extends React.Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight});
   }
 
-  fetch(location) {
+  fetch() {
+    const location = window.location.href.split('/')[3];
     axios.get(`/api/images/${location}`)
       .then((data) => {
         this._isMounted && this.setState({ images: data.data });
@@ -85,25 +86,24 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { images, selected, modal, height, width } = this.state;
+    const { images, selected, modal } = this.state;
     if (images.length === 0) {
       return null;
     }
     const batch = (images.length >= 5
       ? images.slice(0, 5)
       : images);
+    console.log(window.location.pathname);
 
     return (
       <div>
-        <div className={modal ? lightbox.modal : lightbox.off} id="lightbox" height={height} width={width}>
+        <div className={modal ? lightbox.modal : lightbox.off} id="lightbox">
           <Lightbox
             selected={selected}
             images={images}
             toggle={this.toggle}
             next={this.next}
             prev={this.prev}
-            height={height}
-            width={width}
           />
         </div>
         <div className={gallery.container} onKeyDown={this.escFunc}>

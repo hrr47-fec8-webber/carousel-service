@@ -8,10 +8,10 @@ import ShareIcon from './ShareIcon.jsx';
 import LikeIcon from './LikeIcon.jsx';
 
 const Lightbox = ({
-  toggle, next, prev, images, selected, height, width
+  toggle, next, prev, images, selected
 }) => (
   <div className={lightbox.container}>
-    <div className={lightbox.grid} height={height} width={width}>
+    <div className={lightbox.grid}>
       <div className={lightbox.close}>
         <button className={lightbox.button} type="submit" onClick={toggle} id="close">
           <span className={lightbox.x}>
