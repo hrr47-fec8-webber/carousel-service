@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable no-undef */
-/* eslint-disable import/extensions */
+/* global jest, it, expect, describe, document */
+/* eslint import/extensions: ["error", {"jsx": always, "css": always}] */
 import React from 'react';
 import axios from 'axios';
 import { shallow, mount } from 'enzyme';
@@ -42,6 +42,11 @@ const images = [
 const res = { data: images };
 
 axios.get = jest.fn().mockResolvedValue(res);
+
+const events = {};
+document.addEventListener = jest.fn((event, cb) => {
+  events[event] = cb;
+});
 
 describe('Gallery Component', () => {
   it('renders correctly', async () => {
@@ -101,7 +106,7 @@ describe('Gallery Component', () => {
     galleryInstance.update();
 
     galleryInstance.find('#gallery-grid').simulate('click');
-    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 39 });
+    events.keydown({ keyCode: 39 });
     expect(galleryInstance.state().selected).toBe(2);
     galleryInstance.unmount();
   });
@@ -128,10 +133,10 @@ describe('Gallery Component', () => {
     galleryInstance.update();
 
     galleryInstance.find('#gallery-grid').simulate('click');
-    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 39 });
+    events.keydown({ keyCode: 39 });
     expect(galleryInstance.state().selected).toBe(2);
 
-    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 37 });
+    events.keydown({ keyCode: 37 });
     expect(galleryInstance.state().selected).toBe(1);
 
     galleryInstance.unmount();
@@ -161,7 +166,7 @@ describe('Gallery Component', () => {
     galleryInstance.find('#gallery-grid').simulate('click');
     expect(galleryInstance.state().modal).toBe(true);
 
-    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 27 });
+    events.keydown({ keyCode: 27 });
     expect(galleryInstance.state().modal).toBe(false);
 
     galleryInstance.unmount();

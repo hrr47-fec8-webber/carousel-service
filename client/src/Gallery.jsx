@@ -77,6 +77,7 @@ class Gallery extends React.Component {
 
   keyFunc(e) {
     const { modal, selected, images } = this.state;
+    console.log(selected);
     if (modal === true) {
       if (e.keyCode === 27) {
         this.setState({
@@ -116,7 +117,7 @@ class Gallery extends React.Component {
         </div>
         <div className={gallery.container}>
           <div className={gallery.flex}>
-            <div role="presentation" className={gallery.grid} onClick={this.toggle} onKeyDown={this.keyFunc} id="gallery-grid">
+            <div role="presentation" className={gallery.grid} onClick={this.toggle} id="gallery-grid">
               {batch.map((image) => (
                 <GalleryImage
                   image={image}

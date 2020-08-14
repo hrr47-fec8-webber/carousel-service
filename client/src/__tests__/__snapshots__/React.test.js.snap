@@ -51,7 +51,6 @@ exports[`Gallery Component renders correctly 1`] = `
         className="grid"
         id="gallery-grid"
         onClick={[Function]}
-        onKeyDown={[Function]}
         role="presentation"
       >
         <GalleryImage
