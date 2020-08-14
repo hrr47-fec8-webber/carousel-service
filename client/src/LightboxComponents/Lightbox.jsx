@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable import/extensions */
+/* eslint import/extensions: ["error", {"jsx": always, "css": always}] */
 import React from 'react';
 import lightbox from './lightbox.css';
 import PrevArrow from './PrevArrow.jsx';

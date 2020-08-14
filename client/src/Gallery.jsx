@@ -1,11 +1,7 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-undef */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable import/extensions */
+/* global document, window */
+/* eslint no-underscore-dangle: ["error", {"allowAfterThis": true}] */
+/* eslint no-unused-expressions: ["error", { "allowShortCircuit": true }] */
+/* eslint import/extensions: ["error", {"jsx": always, "css": always}] */
 import React from 'react';
 import axios from 'axios';
 import gallery from './gallery.css';
@@ -49,18 +45,20 @@ class Gallery extends React.Component {
   }
 
   toggle(e) {
+    const { modal } = this.state;
     let num = (e && e.target.id ? Number(e.target.id) : 1);
     // eslint-disable-next-line no-restricted-globals
     if (isNaN(num)) { num = 1; }
     this.setState({
       selected: num,
-      modal: !this.state.modal,
+      modal: !modal,
     });
   }
 
   prev() {
-    if (this.state.selected > 1) {
-      const number = this.state.selected - 1;
+    const { selected } = this.state;
+    if (selected > 1) {
+      const number = selected - 1;
       this.setState({
         selected: number,
       });
@@ -68,8 +66,9 @@ class Gallery extends React.Component {
   }
 
   next() {
-    if (this.state.selected < this.state.images.length) {
-      const number = this.state.selected + 1;
+    const { selected, images } = this.state;
+    if (selected < images.length) {
+      const number = selected + 1;
       this.setState({
         selected: number,
       });
@@ -77,10 +76,11 @@ class Gallery extends React.Component {
   }
 
   escFunc(e) {
+    const { modal } = this.state;
     if (e.keyCode === 27) {
-      if (this.state.modal === true) {
+      if (modal === true) {
         this.setState({
-          modal: !this.state.modal,
+          modal: !modal,
         });
       }
     }
@@ -108,7 +108,7 @@ class Gallery extends React.Component {
         </div>
         <div className={gallery.container}>
           <div className={gallery.flex}>
-            <div className={gallery.grid} onClick={this.toggle} onKeyDown={this.escFunc} id="gallery-grid">
+            <div role="presentation" className={gallery.grid} onClick={this.toggle} onKeyDown={this.escFunc} id="gallery-grid">
               {batch.map((image) => (
                 <GalleryImage
                   image={image}
