@@ -72,5 +72,9 @@ To run tests:
 npm test
 ```
 
-Testing is implemented with Jest and Enzyme.
+Testing is implemented with Jest and Enzyme. Should you update the components in a way that changes the snapshot against which the tests are compared, run the following up update all snapshots:
+
+```sh
+npm test -- -u
+```
 
