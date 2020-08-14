@@ -94,6 +94,18 @@ describe('Gallery Component', () => {
     galleryInstance.unmount();
   });
 
+  it('should advance images when right arrow key is pressed', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 39 });
+    expect(galleryInstance.state().selected).toBe(2);
+    galleryInstance.unmount();
+  });
+
   it('should go to previous image when previous arrow is clicked in lightbox', async () => {
     const galleryInstance = await mount(<Gallery location={7} />);
     expect(galleryInstance.state().selected).toBe(1);
@@ -109,6 +121,22 @@ describe('Gallery Component', () => {
     galleryInstance.unmount();
   });
 
+  it('should return to previous image when left arrow key is pressed', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 39 });
+    expect(galleryInstance.state().selected).toBe(2);
+
+    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 37 });
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.unmount();
+  });
+
   it('should close the lightbox when close button is clicked', async () => {
     const galleryInstance = await mount(<Gallery location={7} />);
     expect(galleryInstance.state().modal).toBe(false);
@@ -119,6 +147,21 @@ describe('Gallery Component', () => {
     expect(galleryInstance.state().modal).toBe(true);
 
     galleryInstance.find('#close').simulate('click');
+    expect(galleryInstance.state().modal).toBe(false);
+
+    galleryInstance.unmount();
+  });
+
+  it('should close the lightbox when esc key is pressed', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().modal).toBe(false);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+    expect(galleryInstance.state().modal).toBe(true);
+
+    galleryInstance.find('#gallery-grid').simulate('keyDown', { keyCode: 27 });
     expect(galleryInstance.state().modal).toBe(false);
 
     galleryInstance.unmount();

@@ -19,7 +19,7 @@ class Gallery extends React.Component {
     };
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
-    this.escFunc = this.escFunc.bind(this);
+    this.keyFunc = this.keyFunc.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
     this._isMounted = false;
@@ -27,13 +27,13 @@ class Gallery extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
-    document.addEventListener('keydown', this.escFunc);
+    document.addEventListener('keydown', this.keyFunc);
     this._isMounted && this.fetch();
   }
 
   componentWillUnmount() {
     this._isMounted = false;
-    document.removeEventListener('keydown', this.escFunc);
+    document.removeEventListener('keydown', this.keyFunc);
   }
 
   fetch() {
@@ -75,12 +75,20 @@ class Gallery extends React.Component {
     }
   }
 
-  escFunc(e) {
-    const { modal } = this.state;
-    if (e.keyCode === 27) {
-      if (modal === true) {
+  keyFunc(e) {
+    const { modal, selected, images } = this.state;
+    if (modal === true) {
+      if (e.keyCode === 27) {
         this.setState({
           modal: !modal,
+        });
+      } else if (e.keyCode === 39 && selected < images.length) {
+        this.setState({
+          selected: selected + 1,
+        });
+      } else if (e.keyCode === 37 && selected > 1) {
+        this.setState({
+          selected: selected - 1,
         });
       }
     }
@@ -108,7 +116,7 @@ class Gallery extends React.Component {
         </div>
         <div className={gallery.container}>
           <div className={gallery.flex}>
-            <div role="presentation" className={gallery.grid} onClick={this.toggle} onKeyDown={this.escFunc} id="gallery-grid">
+            <div role="presentation" className={gallery.grid} onClick={this.toggle} onKeyDown={this.keyFunc} id="gallery-grid">
               {batch.map((image) => (
                 <GalleryImage
                   image={image}
