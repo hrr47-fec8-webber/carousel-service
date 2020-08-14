@@ -31,11 +31,13 @@ class Gallery extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
+    document.addEventListener('keydown', this.escFunc);
     this._isMounted && this.fetch();
   }
 
   componentWillUnmount() {
     this._isMounted = false;
+    document.removeEventListener('keydown', this.escFunc);
   }
 
   fetch() {
@@ -76,9 +78,11 @@ class Gallery extends React.Component {
 
   escFunc(e) {
     if (e.keyCode === 27) {
-      this.setState({
-        modal: false,
-      });
+      if (this.state.modal === true) {
+        this.setState({
+          modal: !this.state.modal,
+        });
+      }
     }
   }
 
@@ -102,9 +106,9 @@ class Gallery extends React.Component {
             prev={this.prev}
           />
         </div>
-        <div className={gallery.container} onKeyDown={this.escFunc}>
+        <div className={gallery.container}>
           <div className={gallery.flex}>
-            <div className={gallery.grid} onClick={this.toggle} id="gallery-grid">
+            <div className={gallery.grid} onClick={this.toggle} onKeyDown={this.escFunc} id="gallery-grid">
               {batch.map((image) => (
                 <GalleryImage
                   image={image}
