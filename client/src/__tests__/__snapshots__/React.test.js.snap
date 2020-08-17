@@ -51,7 +51,7 @@ exports[`Gallery Component renders correctly 1`] = `
         className="grid"
         id="gallery-grid"
         onClick={[Function]}
-        onKeyDown={[Function]}
+        role="presentation"
       >
         <GalleryImage
           image={
@@ -132,6 +132,7 @@ exports[`Next Image Arrow Component renders correctly 1`] = `
 <div
   className="arrow"
   id="next-arrow"
+  role="presentation"
 >
   <svg
     height="10"
@@ -170,6 +171,7 @@ exports[`Previous Image Arrow Component renders correctly 1`] = `
   className="arrow"
   id="prev-arrow"
   onClick={[Function]}
+  role="presentation"
 >
   <svg
     height="10"

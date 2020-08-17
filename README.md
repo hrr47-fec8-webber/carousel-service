@@ -62,7 +62,7 @@ Once this is done, run:
 npm start
 npm run build
 ```
-Direct your browser to localhost:3001, and you should see the gallery module populated with images from your database. To specify a different location, navigate to index.jsx in the /src folder and edit the location variable.
+Direct your browser to localhost:3001/:id, and you should see the gallery module populated with images from your database. To specify a different location, change the id (anywhere between 1 and 100, inclusive).
 
 ### Testing
 
@@ -72,5 +72,9 @@ To run tests:
 npm test
 ```
 
-Testing is implemented with Jest and Enzyme.
+Testing is implemented with Jest and Enzyme. Should you update the components in a way that changes the snapshot against which the tests are compared, run the following up update all snapshots:
+
+```sh
+npm test -- -u
+```
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable no-undef */
-/* eslint-disable import/extensions */
+/* global jest, it, expect, describe, document */
+/* eslint import/extensions: ["error", {"jsx": always, "css": always}] */
 import React from 'react';
 import axios from 'axios';
 import { shallow, mount } from 'enzyme';
@@ -42,6 +42,11 @@ const images = [
 const res = { data: images };
 
 axios.get = jest.fn().mockResolvedValue(res);
+
+const events = {};
+document.addEventListener = jest.fn((event, cb) => {
+  events[event] = cb;
+});
 
 describe('Gallery Component', () => {
   it('renders correctly', async () => {
@@ -94,6 +99,18 @@ describe('Gallery Component', () => {
     galleryInstance.unmount();
   });
 
+  it('should advance images when right arrow key is pressed', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+    events.keydown({ keyCode: 39 });
+    expect(galleryInstance.state().selected).toBe(2);
+    galleryInstance.unmount();
+  });
+
   it('should go to previous image when previous arrow is clicked in lightbox', async () => {
     const galleryInstance = await mount(<Gallery location={7} />);
     expect(galleryInstance.state().selected).toBe(1);
@@ -109,6 +126,22 @@ describe('Gallery Component', () => {
     galleryInstance.unmount();
   });
 
+  it('should return to previous image when left arrow key is pressed', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+    events.keydown({ keyCode: 39 });
+    expect(galleryInstance.state().selected).toBe(2);
+
+    events.keydown({ keyCode: 37 });
+    expect(galleryInstance.state().selected).toBe(1);
+
+    galleryInstance.unmount();
+  });
+
   it('should close the lightbox when close button is clicked', async () => {
     const galleryInstance = await mount(<Gallery location={7} />);
     expect(galleryInstance.state().modal).toBe(false);
@@ -119,6 +152,21 @@ describe('Gallery Component', () => {
     expect(galleryInstance.state().modal).toBe(true);
 
     galleryInstance.find('#close').simulate('click');
+    expect(galleryInstance.state().modal).toBe(false);
+
+    galleryInstance.unmount();
+  });
+
+  it('should close the lightbox when esc key is pressed', async () => {
+    const galleryInstance = await mount(<Gallery location={7} />);
+    expect(galleryInstance.state().modal).toBe(false);
+
+    galleryInstance.update();
+
+    galleryInstance.find('#gallery-grid').simulate('click');
+    expect(galleryInstance.state().modal).toBe(true);
+
+    events.keydown({ keyCode: 27 });
     expect(galleryInstance.state().modal).toBe(false);
 
     galleryInstance.unmount();
