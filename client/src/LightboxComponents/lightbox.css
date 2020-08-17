@@ -20,7 +20,9 @@
 }
 
 .container {
-  margin: 40px;
+  margin: 30px;
+  position: relative;
+  right: 7px;
 }
 
 .grid {

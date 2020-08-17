@@ -16,7 +16,6 @@ app.get('/api/images/:id', (req, res) => {
   const id = req.url.slice(12);
   db.query('SELECT * FROM images WHERE location_id = ? ORDER BY img_order ASC', [id], (err, data) => {
     if (err) {
-      console.log(err);
       res.send('An error occurred');
     } else {
       res.send(data);
