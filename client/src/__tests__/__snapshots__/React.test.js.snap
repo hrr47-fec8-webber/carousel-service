@@ -41,72 +41,74 @@ exports[`Gallery Component renders correctly 1`] = `
       toggle={[Function]}
     />
   </div>
-  <div
-    className="container"
-  >
+  <div>
     <div
-      className="flex"
+      className="container"
     >
       <div
-        className="grid"
-        id="gallery-grid"
-        onClick={[Function]}
-        role="presentation"
+        className="flex"
       >
-        <GalleryImage
-          image={
-            Object {
-              "id": 5,
-              "img_order": 1,
-              "location_id": 7,
-              "url": "abcd",
-            }
-          }
-          key="5"
-          length={4}
-        />
-        <GalleryImage
-          image={
-            Object {
-              "id": 6,
-              "img_order": 2,
-              "location_id": 7,
-              "url": "efgh",
-            }
-          }
-          key="6"
-          length={4}
-        />
-        <GalleryImage
-          image={
-            Object {
-              "id": 7,
-              "img_order": 3,
-              "location_id": 7,
-              "url": "ijkl",
-            }
-          }
-          key="7"
-          length={4}
-        />
-        <GalleryImage
-          image={
-            Object {
-              "id": 8,
-              "img_order": 4,
-              "location_id": 7,
-              "url": "mnop",
-            }
-          }
-          key="8"
-          length={4}
-        />
-        <button
-          className="showAll"
-          type="submit"
+        <div
+          className="grid"
+          id="gallery-grid"
+          onClick={[Function]}
+          role="presentation"
         >
-          Show all photos
-        </button>
+          <GalleryImage
+            image={
+              Object {
+                "id": 5,
+                "img_order": 1,
+                "location_id": 7,
+                "url": "abcd",
+              }
+            }
+            key="5"
+            length={4}
+          />
+          <GalleryImage
+            image={
+              Object {
+                "id": 6,
+                "img_order": 2,
+                "location_id": 7,
+                "url": "efgh",
+              }
+            }
+            key="6"
+            length={4}
+          />
+          <GalleryImage
+            image={
+              Object {
+                "id": 7,
+                "img_order": 3,
+                "location_id": 7,
+                "url": "ijkl",
+              }
+            }
+            key="7"
+            length={4}
+          />
+          <GalleryImage
+            image={
+              Object {
+                "id": 8,
+                "img_order": 4,
+                "location_id": 7,
+                "url": "mnop",
+              }
+            }
+            key="8"
+            length={4}
+          />
+          <button
+            className="showAll"
+            type="submit"
+          >
+            Show all photos
+          </button>
+        </div>
       </div>
     </div>
   </div>
