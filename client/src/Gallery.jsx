@@ -57,6 +57,7 @@ class Gallery extends React.Component {
   }
 
   toggle(e) {
+    window.scrollTo(0, 0);
     const { modal } = this.state;
     let num = (e && e.target.id ? Number(e.target.id) : 1);
     // eslint-disable-next-line no-restricted-globals
