@@ -77,17 +77,18 @@ class Gallery extends React.Component {
 
   keyFunc(e) {
     const { modal, selected, images } = this.state;
-    console.log(selected);
     if (modal === true) {
       if (e.keyCode === 27) {
         this.setState({
           modal: !modal,
         });
       } else if (e.keyCode === 39 && selected < images.length) {
+        if (e.preventDefault) { e.preventDefault(); }
         this.setState({
           selected: selected + 1,
         });
       } else if (e.keyCode === 37 && selected > 1) {
+        if (e.preventDefault) { e.preventDefault(); }
         this.setState({
           selected: selected - 1,
         });

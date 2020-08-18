@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-/* global jest, it, expect, describe, document */
+/* global jest, it, expect, describe, document, e */
 /* eslint import/extensions: ["error", {"jsx": always, "css": always}] */
 import React from 'react';
 import axios from 'axios';
@@ -47,6 +47,8 @@ const events = {};
 document.addEventListener = jest.fn((event, cb) => {
   events[event] = cb;
 });
+
+let e = { preventDefault: () => {} };
 
 describe('Gallery Component', () => {
   it('renders correctly', async () => {

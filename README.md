@@ -48,7 +48,7 @@ npm install
 
 ### Running The Module
 
-Make sure all dependencies are installed and your mySQL server is up and running. From the command line, run the following:
+Make sure all dependencies are installed. In the db config file, ensure correct username and password for your mySQL. Then, once your mySQL server is up and running, run the carousel.sql file to implement schema for table images. Then, from the command line, run the following:
 
 ```sh
 npm run seed
