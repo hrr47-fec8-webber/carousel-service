@@ -122,7 +122,7 @@ class Gallery extends React.Component {
 
   render() {
     const {
-      images, selected, modal, height, width, modalHeight, modalWidth
+      images, selected, modal, height, width, modalHeight, modalWidth,
     } = this.state;
     if (images.length === 0) {
       return null;

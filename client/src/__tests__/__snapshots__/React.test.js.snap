@@ -7,6 +7,7 @@ exports[`Gallery Component renders correctly 1`] = `
     id="lightbox"
   >
     <Lightbox
+      height={768}
       images={
         Array [
           Object {
@@ -39,6 +40,7 @@ exports[`Gallery Component renders correctly 1`] = `
       prev={[Function]}
       selected={1}
       toggle={[Function]}
+      width={952.32}
     />
   </div>
   <div>
