@@ -9,10 +9,10 @@ import ShareIcon from './ShareIcon.jsx';
 import LikeIcon from './LikeIcon.jsx';
 
 const Lightbox = ({
-  toggle, next, prev, images, selected,
+  toggle, next, prev, images, selected, height, width,
 }) => (
   <div className={lightbox.container}>
-    <div className={lightbox.grid}>
+    <div className={lightbox.grid} style={{ height, width }}>
       <div className={lightbox.close}>
         <button className={lightbox.button} type="submit" onClick={toggle} id="close">
           <span className={lightbox.x}>
@@ -28,10 +28,12 @@ const Lightbox = ({
         <ShareIcon />
         <LikeIcon />
       </div>
-      <div className={lightbox.carousel}>
-        <PrevArrow prev={prev} selected={selected} />
-        {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt="" key={image.id} />)}
-        <NextArrow next={next} selected={selected} length={images.length} />
+      <div className={lightbox.carouselContainer}>
+        <div className={lightbox.carousel}>
+          <PrevArrow prev={prev} selected={selected} />
+          {images.map((image) => <img className={selected === image.img_order ? lightbox.image : lightbox.imageOff} src={image.url} alt="" key={image.id} />)}
+          <NextArrow next={next} selected={selected} length={images.length} />
+        </div>
       </div>
     </div>
   </div>

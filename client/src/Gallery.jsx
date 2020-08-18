@@ -19,6 +19,8 @@ class Gallery extends React.Component {
       modal: false,
       width: 0,
       height: 0,
+      modalWidth: 0,
+      modalHeight: 0,
     };
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -45,7 +47,12 @@ class Gallery extends React.Component {
   }
 
   updateWindowDimensions() {
-    this.setState({ width: window.innerWidth * 0.96, height: window.innerHeight * 0.6 });
+    this.setState({
+      modalWidth: window.innerWidth * 0.93,
+      modalHeight: window.innerHeight,
+      width: window.innerWidth * 0.96,
+      height: window.innerHeight * 0.6,
+    });
   }
 
   fetch() {
@@ -115,7 +122,7 @@ class Gallery extends React.Component {
 
   render() {
     const {
-      images, selected, modal, height, width,
+      images, selected, modal, height, width, modalHeight, modalWidth
     } = this.state;
     if (images.length === 0) {
       return null;
@@ -138,6 +145,8 @@ class Gallery extends React.Component {
             toggle={this.toggle}
             next={this.next}
             prev={this.prev}
+            width={modalWidth}
+            height={modalHeight}
           />
         </div>
         <div>
