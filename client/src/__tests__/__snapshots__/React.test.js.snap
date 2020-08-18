@@ -44,6 +44,13 @@ exports[`Gallery Component renders correctly 1`] = `
   <div>
     <div
       className="container"
+      style={
+        Object {
+          "height": 460.79999999999995,
+          "margin": "15px 10px 20px 10px",
+          "width": 983.04,
+        }
+      }
     >
       <div
         className="flex"
@@ -53,6 +60,12 @@ exports[`Gallery Component renders correctly 1`] = `
           id="gallery-grid"
           onClick={[Function]}
           role="presentation"
+          style={
+            Object {
+              "height": 460.79999999999995,
+              "width": 983.04,
+            }
+          }
         >
           <GalleryImage
             image={
