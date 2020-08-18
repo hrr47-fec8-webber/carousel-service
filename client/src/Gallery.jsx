@@ -83,12 +83,12 @@ class Gallery extends React.Component {
           modal: !modal,
         });
       } else if (e.keyCode === 39 && selected < images.length) {
-        e.preventDefault();
+        if (e.preventDefault) { e.preventDefault(); }
         this.setState({
           selected: selected + 1,
         });
       } else if (e.keyCode === 37 && selected > 1) {
-        e.preventDefault();
+        if (e.preventDefault) { e.preventDefault(); }
         this.setState({
           selected: selected - 1,
         });
