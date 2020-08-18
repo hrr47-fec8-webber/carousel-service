@@ -26,6 +26,7 @@ class Gallery extends React.Component {
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
     this.noScroll = this.noScroll.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this._isMounted = false;
   }
 
@@ -44,7 +45,7 @@ class Gallery extends React.Component {
   }
 
   updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight * .3});
+    this.setState({ width: window.innerWidth * 0.96, height: window.innerHeight * 0.6 });
   }
 
   fetch() {
@@ -112,7 +113,9 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { images, selected, modal } = this.state;
+    const {
+      images, selected, modal, height, width,
+    } = this.state;
     if (images.length === 0) {
       return null;
     }
@@ -137,9 +140,9 @@ class Gallery extends React.Component {
           />
         </div>
         <div>
-          <div className={gallery.container}>
+          <div className={gallery.container} style={{ height, width, margin: '15px 10px 20px 10px' }}>
             <div className={gallery.flex}>
-              <div role="presentation" className={gallery.grid} onClick={this.toggle} id="gallery-grid">
+              <div role="presentation" className={gallery.grid} onClick={this.toggle} id="gallery-grid" style={{ height, width }}>
                 {batch.map((image) => (
                   <GalleryImage
                     image={image}
