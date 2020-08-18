@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* global document, window */
 /* eslint no-underscore-dangle: ["error", {"allowAfterThis": true}] */
 /* eslint no-unused-expressions: ["error", { "allowShortCircuit": true }] */
@@ -16,24 +17,35 @@ class Gallery extends React.Component {
       images: [],
       selected: 1,
       modal: false,
+      width: 0,
+      height: 0,
     };
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
     this.keyFunc = this.keyFunc.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+    this.noScroll = this.noScroll.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this._isMounted = false;
   }
 
   componentDidMount() {
     this._isMounted = true;
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
     document.addEventListener('keydown', this.keyFunc);
     this._isMounted && this.fetch();
   }
 
   componentWillUnmount() {
     this._isMounted = false;
+    window.removeEventListener('resize', this.updateWindowDimensions);
     document.removeEventListener('keydown', this.keyFunc);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth * 0.96, height: window.innerHeight * 0.6 });
   }
 
   fetch() {
@@ -75,6 +87,10 @@ class Gallery extends React.Component {
     }
   }
 
+  noScroll() {
+    window.scrollTo(0, 0);
+  }
+
   keyFunc(e) {
     const { modal, selected, images } = this.state;
     if (modal === true) {
@@ -97,13 +113,20 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { images, selected, modal } = this.state;
+    const {
+      images, selected, modal, height, width,
+    } = this.state;
     if (images.length === 0) {
       return null;
     }
     const batch = (images.length >= 5
       ? images.slice(0, 5)
       : images);
+    if (modal) {
+      window.addEventListener('scroll', this.noScroll);
+    } else {
+      window.removeEventListener('scroll', this.noScroll);
+    }
 
     return (
       <div>
@@ -116,19 +139,21 @@ class Gallery extends React.Component {
             prev={this.prev}
           />
         </div>
-        <div className={gallery.container}>
-          <div className={gallery.flex}>
-            <div role="presentation" className={gallery.grid} onClick={this.toggle} id="gallery-grid">
-              {batch.map((image) => (
-                <GalleryImage
-                  image={image}
-                  length={batch.length}
-                  key={image.id}
-                />
-              ))}
-              {images.length
-                ? <button type="submit" className={gallery.showAll}>Show all photos</button>
-                : (<div> </div>)}
+        <div>
+          <div className={gallery.container} style={{ height, width, margin: '15px 10px 20px 10px' }}>
+            <div className={gallery.flex}>
+              <div role="presentation" className={gallery.grid} onClick={this.toggle} id="gallery-grid" style={{ height, width }}>
+                {batch.map((image) => (
+                  <GalleryImage
+                    image={image}
+                    length={batch.length}
+                    key={image.id}
+                  />
+                ))}
+                {images.length
+                  ? <button type="submit" className={gallery.showAll}>Show all photos</button>
+                  : (<div> </div>)}
+              </div>
             </div>
           </div>
         </div>
