@@ -27,3 +27,4 @@ build/
 client/dist/bundle.js
 db/config.js
 bundle.js
+config.js
