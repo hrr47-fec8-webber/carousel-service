@@ -1,5 +1,6 @@
 .modal {
   position: absolute;
+  padding: 0 0 0 10px;
   top: 0;
   height: 100%;
   width: 100%;

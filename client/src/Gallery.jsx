@@ -21,6 +21,7 @@ class Gallery extends React.Component {
       height: 0,
       modalWidth: 0,
       modalHeight: 0,
+      windowWidth: 0,
     };
     this.fetch = this.fetch.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -50,7 +51,7 @@ class Gallery extends React.Component {
     this.setState({
       modalWidth: window.innerWidth * 0.93,
       modalHeight: window.innerHeight,
-      width: window.innerWidth * 0.96,
+      width: window.innerWidth * 0.9,
       height: window.innerHeight * 0.6,
     });
   }
@@ -150,9 +151,9 @@ class Gallery extends React.Component {
           />
         </div>
         <div>
-          <div className={gallery.container} style={{ height, width, margin: '15px 10px 20px 10px' }}>
+          <div className={gallery.container} style={{ height, width, margin: '0px 20px 20px 53px' }}>
             <div className={gallery.flex}>
-              <div role="presentation" className={gallery.grid} onClick={this.toggle} id="gallery-grid" style={{ height, width }}>
+              <div role="presentation" className={gallery.grid} onClick={this.toggle} id="gallery-grid" style={{ height, width, margin: '0 auto' }}>
                 {batch.map((image) => (
                   <GalleryImage
                     image={image}

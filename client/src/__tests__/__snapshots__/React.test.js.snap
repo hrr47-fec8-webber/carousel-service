@@ -49,8 +49,8 @@ exports[`Gallery Component renders correctly 1`] = `
       style={
         Object {
           "height": 460.79999999999995,
-          "margin": "15px 10px 20px 10px",
-          "width": 983.04,
+          "margin": "0px 20px 20px 53px",
+          "width": 921.6,
         }
       }
     >
@@ -65,7 +65,8 @@ exports[`Gallery Component renders correctly 1`] = `
           style={
             Object {
               "height": 460.79999999999995,
-              "width": 983.04,
+              "margin": "0 auto",
+              "width": 921.6,
             }
           }
         >

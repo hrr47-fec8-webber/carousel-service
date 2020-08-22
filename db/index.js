@@ -4,7 +4,7 @@ const config = require('./config');
 const connection = mysql.createConnection({
   user: config.user,
   password: config.password,
-  database: 'carousel'
+  database: 'carousel',
 });
 
 connection.connect();
