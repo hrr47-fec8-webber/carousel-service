@@ -4,9 +4,7 @@ Image Gallery and Lightbox for AirBnB Clone
 
 ## Related Projects
 
-  - https://github.com/hrr47-fec8-webber/booking-service
-  - https://github.com/hrr47-fec8-webber/reviews-service
-  - https://github.com/hrr47-fec8-webber/moreplacestostay-service
+  - https://github.com/####
 
 ## Table of Contents
 
@@ -63,6 +61,44 @@ npm start
 npm run build
 ```
 Direct your browser to localhost:3001/:id, and you should see the gallery module populated with images from your database. To specify a different location, change the id (anywhere between 1 and 100, inclusive).
+
+### CRUD API
+
+#### Format
+The endpoint used within the CRUD API follows this format:
+```sh
+/api/images/:location
+```
+Where "location" is a numerical value associated with the location index in the database and is accessed server-side via
+
+```sh
+req.params.location
+```
+
+#### Basic Routing Examples
+Basic routing includes the following API requests:
+
+```sh
+app.get(`/api/images/:location`, (req, res) => {
+  const location = req.params.location;
+  res.send(`GET request images for location #${location}`)
+})
+
+app.post(`/api/images/:location`, function (req, res) {
+  const location = req.params.location;
+  res.send(`POST request images for location #${location}`)
+})
+
+app.put(`/api/images/:location`, function (req, res) {
+  const location = req.params.location;
+  res.send(`PUT request images for location #${location}`)
+})
+
+app.delete(`/api/images/:location`, function (req, res) {
+  const location = req.params.location;
+  res.send(`DELETE request images for location #${location}`)
+})
+```
 
 ### Testing
 
