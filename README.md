@@ -1,6 +1,6 @@
 # Project Name
 
-Image Gallery and Lightbox for AirBnB Clone
+Image Gallery and Lightbox for Booked
 
 ## Related Projects
 
@@ -16,7 +16,7 @@ Image Gallery and Lightbox for AirBnB Clone
 
 ## Usage
 
-This module builds a simple interactive photo gallery for an AirBnB clone. It takes a numeric location ID from the URL and fetches images associated with that location.
+This module builds a simple interactive photo gallery for Booked. It takes a numeric location ID from the URL and fetches images associated with that location.
 
 ## Requirements
 
