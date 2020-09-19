@@ -2,6 +2,8 @@
 
 Welcome to Booked, a vacation rental booking website! This repo contains the Image Gallery and Lightbox component.
 
+![In Action](./screenshots/ezgif-6-226eeb09347c.gif?raw=true)
+
 ## Related Projects
 
   - https://github.com/hrr47-fec8-webber/booking-service
@@ -79,9 +81,6 @@ npm test -- -u
 ```
 
 ## Views
-
-### In Action
-![In Action](./screenshots/ezgif-6-226eeb09347c.gif?raw=true)
 
 ### Five Available Photos
 ![Five Available Photos](./screenshots/5Imgs.png?raw=true)
