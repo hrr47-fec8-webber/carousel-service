@@ -1,6 +1,6 @@
 # Booked Image Gallery
 
-Image Gallery and Lightbox for Booked, a vacation rental booking website.
+Welcome to Booked, a vacation rental booking website! This repo contains the Image Gallery and Lightbox component.
 
 ## Related Projects
 
