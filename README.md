@@ -93,4 +93,4 @@ npm test -- -u
 ![Two Available Photos](./screenshots/2Imgs.png?raw=true)
 
 ### Single Available Photo
-![Single Available Photo](./screenshots/1Imgs.png?raw=true)
+![Single Available Photo](./screenshots/1IMG.png?raw=true)
