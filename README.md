@@ -78,3 +78,14 @@ Testing is implemented with Jest and Enzyme. Should you update the components in
 npm test -- -u
 ```
 
+## Views
+
+### Five Available Photos
+
+### Four Available Photos
+
+### Three Available Photos
+
+### Two Available Photos
+
+### Single Available Photo
