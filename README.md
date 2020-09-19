@@ -1,6 +1,6 @@
 # Project Name
 
-Image Gallery and Lightbox for Booked
+Image Gallery and Lightbox for Booked, a vacation rental booking website. 
 
 ## Related Projects
 
@@ -16,7 +16,7 @@ Image Gallery and Lightbox for Booked
 
 ## Usage
 
-This module builds a simple interactive photo gallery for Booked. It takes a numeric location ID from the URL and fetches images associated with that location.
+This module builds a simple interactive photo gallery for Booked. It takes a numeric location ID from the URL and fetches all images associated with that location.
 
 ## Requirements
 
@@ -26,7 +26,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Express 4.17.1
 - Axios 0.19.2
 - React 16.13.1
-- mySQL 2.18.1
+- MySQL 2.18.1
 
 Dev:
 - Babel 7.11.1
@@ -48,7 +48,7 @@ npm install
 
 ### Running The Module
 
-Make sure all dependencies are installed. In the db config file, ensure correct username and password for your mySQL. Then, once your mySQL server is up and running, run the carousel.sql file to implement schema for table images. Then, from the command line, run the following:
+Make sure all dependencies are installed. In the db config file, ensure correct username and password for your MySQL. Then, once your MySQL server is up and running, run the carousel.sql file to implement schema for table images. Then, from the command line, run the following:
 
 ```sh
 npm run seed
