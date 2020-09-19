@@ -16,7 +16,7 @@ Image Gallery and Lightbox for Booked, a vacation rental booking website.
 
 ## Usage
 
-This module builds a simple interactive photo gallery for Booked. It takes a numeric location ID from the URL and fetches all images associated with that location.
+This module builds a simple interactive photo gallery for Booked. It takes a numeric location ID from the URL and fetches all images associated with that location. At the moment, there are 100 primary records, so all IDs between 1 and 100 should work.
 
 ## Requirements
 
@@ -48,7 +48,7 @@ npm install
 
 ### Running The Module
 
-Make sure all dependencies are installed. In the db config file, ensure correct username and password for your MySQL. Then, once your MySQL server is up and running, run the carousel.sql file to implement schema for table images. Then, from the command line, run the following:
+Make sure all dependencies are installed. In the db config file, ensure correct username and password for your MySQL. Then, once the MySQL server is up and running, run the carousel.sql file to implement schema for table images. Then, from the command line, run the following:
 
 ```sh
 npm run seed
@@ -62,7 +62,7 @@ Once this is done, run:
 npm start
 npm run build
 ```
-Direct your browser to localhost:3001/:id, and you should see the gallery module populated with images from your database. To specify a different location, change the id (anywhere between 1 and 100, inclusive).
+Direct your browser to localhost:3001/:id, and you should see the gallery module populated with images from your database. To specify a different location, change the ID (anywhere between 1 and 100, inclusive).
 
 ### Testing
 
@@ -72,7 +72,7 @@ To run tests:
 npm test
 ```
 
-Testing is implemented with Jest and Enzyme. Should you update the components in a way that changes the snapshot against which the tests are compared, run the following up update all snapshots:
+Testing is implemented with Jest and Enzyme. Should you update the components in a way that changes the snapshot against which the tests are compared, run the following to update all snapshots:
 
 ```sh
 npm test -- -u
