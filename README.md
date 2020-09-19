@@ -1,6 +1,6 @@
 # Booked Image Gallery
 
-Image Gallery and Lightbox for Booked, a vacation rental booking website. 
+Image Gallery and Lightbox for Booked, a vacation rental booking website.
 
 ## Related Projects
 
@@ -81,11 +81,16 @@ npm test -- -u
 ## Views
 
 ### Five Available Photos
+![Five Available Photos](/screenshots/5Imgs.jpg?raw=true)
 
 ### Four Available Photos
+![Four Available Photos](/screenshots/4Imgs.jpg?raw=true)
 
 ### Three Available Photos
+![Three Available Photos](/screenshots/3Imgs.jpg?raw=true)
 
 ### Two Available Photos
+![Two Available Photos](/screenshots/2Imgs.jpg?raw=true)
 
 ### Single Available Photo
+![Single Available Photo](/screenshots/1Imgs.jpg?raw=true)
