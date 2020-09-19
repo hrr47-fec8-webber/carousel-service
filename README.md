@@ -80,6 +80,9 @@ npm test -- -u
 
 ## Views
 
+### In Action
+![In Action](./screenshots/ezgif-6-226eeb09347c.gif?raw=true)
+
 ### Five Available Photos
 ![Five Available Photos](./screenshots/5Imgs.png?raw=true)
 
