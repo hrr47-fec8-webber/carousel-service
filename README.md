@@ -81,16 +81,16 @@ npm test -- -u
 ## Views
 
 ### Five Available Photos
-![Five Available Photos](./screenshots/5Imgs.jpg?raw=true)
+![Five Available Photos](./screenshots/5Imgs.png?raw=true)
 
 ### Four Available Photos
-![Four Available Photos](./screenshots/4Imgs.jpg?raw=true)
+![Four Available Photos](./screenshots/4Imgs.png?raw=true)
 
 ### Three Available Photos
-![Three Available Photos](./screenshots/3Imgs.jpg?raw=true)
+![Three Available Photos](./screenshots/3Imgs.png?raw=true)
 
 ### Two Available Photos
-![Two Available Photos](./screenshots/2Imgs.jpg?raw=true)
+![Two Available Photos](./screenshots/2Imgs.png?raw=true)
 
 ### Single Available Photo
-![Single Available Photo](./screenshots/1Imgs.jpg?raw=true)
+![Single Available Photo](./screenshots/1Imgs.png?raw=true)
