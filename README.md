@@ -1,4 +1,4 @@
-# Project Name
+# Booked Image Gallery
 
 Image Gallery and Lightbox for Booked, a vacation rental booking website. 
 
